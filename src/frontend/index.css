@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0.97 0.005 250;
+    --foreground: 0.17 0.04 260;
+
+    --card: 1 0 0;
+    --card-foreground: 0.17 0.04 260;
+
+    --popover: 1 0 0;
+    --popover-foreground: 0.17 0.04 260;
+
+    --primary: 0.26 0.07 258;
+    --primary-foreground: 0.98 0 0;
+
+    --secondary: 0.94 0.015 250;
+    --secondary-foreground: 0.26 0.07 258;
+
+    --muted: 0.93 0.012 250;
+    --muted-foreground: 0.52 0.03 255;
+
+    --accent: 0.64 0.17 197;
+    --accent-foreground: 0.98 0 0;
+
+    --destructive: 0.55 0.22 27;
+    --destructive-foreground: 0.98 0 0;
+
+    --border: 0.89 0.02 255;
+    --input: 0.89 0.02 255;
+    --ring: 0.64 0.17 197;
+
+    --radius: 0.625rem;
+
+    --chart-1: 0.64 0.17 197;
+    --chart-2: 0.55 0.15 258;
+    --chart-3: 0.68 0.18 150;
+    --chart-4: 0.72 0.18 45;
+    --chart-5: 0.55 0.22 27;
+
+    --sidebar: 0.18 0.055 258;
+    --sidebar-foreground: 0.95 0.01 250;
+    --sidebar-primary: 0.64 0.17 197;
+    --sidebar-primary-foreground: 0.99 0 0;
+    --sidebar-accent: 0.35 0.09 258;
+    --sidebar-accent-foreground: 0.99 0 0;
+    --sidebar-border: 0.28 0.06 258;
+    --sidebar-ring: 0.64 0.17 197;
+
+    /* Status colors */
+    --status-in-transit: 0.55 0.15 245;
+    --status-customs-hold: 0.72 0.18 70;
+    --status-cleared: 0.65 0.18 150;
+    --status-delivered: 0.55 0.03 255;
+
+    --status-pending: 0.72 0.18 70;
+    --status-approved: 0.65 0.18 150;
+    --status-rejected: 0.55 0.22 27;
+  }
+
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+  }
+}
+
+/* 3D Flip Card */
+.flip-card {
+  perspective: 1200px;
+  cursor: pointer;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.65s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* Sidebar transition */
+.sidebar-transition {
+  transition: width 0.3s ease, transform 0.3s ease;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: oklch(var(--border));
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(var(--muted-foreground));
+}
+
+/* Wave animation for the login hero */
+@keyframes wave-anim {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.wave-animate {
+  animation: wave-anim 8s linear infinite;
+}
+
+/* Fade in */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s ease forwards;
+}
+
+.animate-delay-100 { animation-delay: 0.1s; opacity: 0; }
+.animate-delay-200 { animation-delay: 0.2s; opacity: 0; }
+.animate-delay-300 { animation-delay: 0.3s; opacity: 0; }
+.animate-delay-400 { animation-delay: 0.4s; opacity: 0; }
