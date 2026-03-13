@@ -90,7 +90,7 @@ export function LoginPage({ onLogin, isLoading }: LoginPageProps) {
               <br />
               System
             </h2>
-            <p className="text-sidebar-foreground/60 text-lg leading-relaxed">
+            <p className="text-white text-lg leading-relaxed">
               Unified platform for cargo tracking, documentation, and
               stakeholder coordination across all port operations.
             </p>
@@ -112,9 +112,7 @@ export function LoginPage({ onLogin, isLoading }: LoginPageProps) {
               <div className="text-2xl font-display font-bold text-white">
                 {value}
               </div>
-              <div className="text-xs text-sidebar-foreground/50 mt-0.5">
-                {label}
-              </div>
+              <div className="text-xs text-white/90 mt-0.5">{label}</div>
             </div>
           ))}
         </div>
@@ -137,7 +135,7 @@ export function LoginPage({ onLogin, isLoading }: LoginPageProps) {
             <h3 className="font-display text-2xl font-bold text-foreground">
               Welcome back
             </h3>
-            <p className="text-muted-foreground text-sm mt-1">
+            <p className="text-foreground/70 text-sm mt-1">
               Sign in to your PortSync account
             </p>
           </div>
@@ -205,7 +203,7 @@ export function LoginPage({ onLogin, isLoading }: LoginPageProps) {
             </Button>
           </form>
 
-          <p className="text-center text-xs text-muted-foreground mt-8">
+          <p className="text-center text-xs text-foreground/50 mt-8">
             © {new Date().getFullYear()}. Built with love using{" "}
             <a
               href={`https://caffeine.ai?utm_source=caffeine-footer&utm_medium=referral&utm_content=${encodeURIComponent(window.location.hostname)}`}
